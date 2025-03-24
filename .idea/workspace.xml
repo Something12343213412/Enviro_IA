@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed3e1980-08e8-49fc-b07d-c999bb2ede41" name="Changes" comment="Starting with basic entity class">
-      <change afterPath="$PROJECT_DIR$/Prey.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Herbivore.py" beforeDir="false" afterPath="$PROJECT_DIR$/Herbivore.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Predator.py" beforeDir="false" afterPath="$PROJECT_DIR$/Predator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entity.py" beforeDir="false" afterPath="$PROJECT_DIR$/entities.py" afterDir="false" />
+    <list default="true" id="ed3e1980-08e8-49fc-b07d-c999bb2ede41" name="Changes" comment="Separating entity classes into different files">
+      <change beforePath="$PROJECT_DIR$/GlobalVariables.py" beforeDir="false" afterPath="$PROJECT_DIR$/GlobalVariables.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prey.py" beforeDir="false" afterPath="$PROJECT_DIR$/Prey.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,13 +115,22 @@
       <option name="project" value="LOCAL" />
       <updated>1742842007844</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Separating entity classes into different files">
+      <option name="closed" value="true" />
+      <created>1742848636129</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1742848636129</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Starting this project, the first was me just messing around where as now actually starting on the IA project" />
     <MESSAGE value="Created predator class, went in wrong order according to my planning, should follow that order" />
     <MESSAGE value="Starting with basic entity class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Starting with basic entity class" />
+    <MESSAGE value="Separating entity classes into different files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Separating entity classes into different files" />
   </component>
 </project>
