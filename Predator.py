@@ -1,15 +1,9 @@
-class Predator:
-
-    def __init__(self, density, kill_rate, max_predator_recruitment, max_kill_rate, predator_half_sat):
-        # changes with time, figure out more later
-        self.density = density
-        # changes with time, figure out more later
-        self.kill_rate = kill_rate
-        # 1.2, yr^-1, measures how much new population added
-        self.max_predator_recruitment = max_predator_recruitment
-        # 600, hares/(predators * year), measures the max of how many hares a predator can kill in a year
+from entities import Entity
+class Predator(Entity):
+    def __init__(self, density, recruitment_rate, max_kill_rate, half_saturation, cond_dep_mortality):
+        Entity.__init__(self, density)
+        self.recruitment_rate = recruitment_rate
         self.max_kill_rate = max_kill_rate
-        # 90, hares/km^2, measures 1/2 of what the predators can eat
-        self.predator_half_sat = predator_half_sat
-        #
-        pass
+        self.half_saturation = half_saturation
+        self.cond_dep_mortality = cond_dep_mortality
+
