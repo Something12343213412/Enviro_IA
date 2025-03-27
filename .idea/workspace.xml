@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed3e1980-08e8-49fc-b07d-c999bb2ede41" name="Changes" comment="Separating entity classes into different files">
+    <list default="true" id="ed3e1980-08e8-49fc-b07d-c999bb2ede41" name="Changes" comment="Finished basic class containers for each type">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GlobalVariables.py" beforeDir="false" afterPath="$PROJECT_DIR$/GlobalVariables.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prey.py" beforeDir="false" afterPath="$PROJECT_DIR$/Prey.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Herbivore.py" beforeDir="false" afterPath="$PROJECT_DIR$/Herbivore.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +124,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742848636129</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Finished basic class containers for each type">
+      <option name="closed" value="true" />
+      <created>1742849177968</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1742849177968</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -131,6 +140,7 @@
     <MESSAGE value="Created predator class, went in wrong order according to my planning, should follow that order" />
     <MESSAGE value="Starting with basic entity class" />
     <MESSAGE value="Separating entity classes into different files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Separating entity classes into different files" />
+    <MESSAGE value="Finished basic class containers for each type" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished basic class containers for each type" />
   </component>
 </project>
