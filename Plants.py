@@ -1,5 +1,5 @@
 from entities import Entity
-from GlobalVariables import periodic_func_summer
+from GlobalVariables import periodic_func_summer, periodic_func_winter
 #Makes herbivore class
 class Plants(Entity):
     def __init__(self, density, growth_rate, equilibrium_density, max_rate_removal, cond_growth, cond_consumption):
@@ -14,6 +14,7 @@ class Plants(Entity):
     def find_effective_growth(self):
         return self.growth_rate*periodic_func_summer(self.cond_growth)*(self.equilibrium_density - self.density)
 
-    def find_browse_consumption(self, prey):
-        return (self.density*self.max_rate_removal) / (prey.half_saturation + self.density) *
+    # % of kg of Browse lost per every hare per year
+    def find_plants_consumption(self, prey):
+        return (self.density*self.max_rate_removal) / (prey.half_saturation + self.density) * periodic_func_winter()
 
