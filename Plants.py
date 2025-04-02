@@ -12,9 +12,11 @@ class Plants(Entity):
 
     # gets the growth rate accounting for time differences, kg / (km^2 * yr)
     def find_effective_growth(self):
-        return self.growth_rate*periodic_func_summer(self.cond_growth)*(self.equilibrium_density - self.density)
+        return self.growth_rate*periodic_func_summer() * (self.equilibrium_density - self.density)
 
     # % of kg of Browse lost per every hare per year
     def find_plants_consumption(self, prey):
-        return (self.density*self.max_rate_removal) / (prey.half_saturation + self.density) * periodic_func_winter()
+        return periodic_func_winter()*self.max_rate_removal*self.density*prey.density / (prey.half_saturation + self.density)
 
+    def plant_derivative(self, prey):
+        return self.find_effective_growth() - self.find_plants_consumption(prey)

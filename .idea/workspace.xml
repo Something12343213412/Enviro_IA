@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed3e1980-08e8-49fc-b07d-c999bb2ede41" name="Changes" comment="no idea what I changed">
+    <list default="true" id="ed3e1980-08e8-49fc-b07d-c999bb2ede41" name="Changes" comment="Finished Plant Functions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GlobalVariables.py" beforeDir="false" afterPath="$PROJECT_DIR$/GlobalVariables.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plants.py" beforeDir="false" afterPath="$PROJECT_DIR$/Plants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prey.py" beforeDir="false" afterPath="$PROJECT_DIR$/Prey.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +149,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743613767924</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Finished Plant Functions">
+      <option name="closed" value="true" />
+      <created>1743616981413</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1743616981413</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -159,6 +168,7 @@
     <MESSAGE value="Finished basic class containers for each type" />
     <MESSAGE value="Realized I am a big dumb idiot and thought that the browse was a herbivore when the paper referedd to plants" />
     <MESSAGE value="no idea what I changed" />
-    <option name="LAST_COMMIT_MESSAGE" value="no idea what I changed" />
+    <MESSAGE value="Finished Plant Functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished Plant Functions" />
   </component>
 </project>
