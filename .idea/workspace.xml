@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed3e1980-08e8-49fc-b07d-c999bb2ede41" name="Changes" comment="Finished Plant Functions">
+    <list default="true" id="ed3e1980-08e8-49fc-b07d-c999bb2ede41" name="Changes" comment="Finished Prey Derivative">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GlobalVariables.py" beforeDir="false" afterPath="$PROJECT_DIR$/GlobalVariables.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plants.py" beforeDir="false" afterPath="$PROJECT_DIR$/Plants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prey.py" beforeDir="false" afterPath="$PROJECT_DIR$/Prey.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Predator.py" beforeDir="false" afterPath="$PROJECT_DIR$/Predator.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +155,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743616981413</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Finished Prey Derivative">
+      <option name="closed" value="true" />
+      <created>1743618203995</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1743618203995</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -169,6 +175,7 @@
     <MESSAGE value="Realized I am a big dumb idiot and thought that the browse was a herbivore when the paper referedd to plants" />
     <MESSAGE value="no idea what I changed" />
     <MESSAGE value="Finished Plant Functions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished Plant Functions" />
+    <MESSAGE value="Finished Prey Derivative" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished Prey Derivative" />
   </component>
 </project>
