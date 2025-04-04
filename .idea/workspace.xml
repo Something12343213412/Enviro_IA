@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed3e1980-08e8-49fc-b07d-c999bb2ede41" name="Changes" comment="Finished Prey Derivative">
+    <list default="true" id="ed3e1980-08e8-49fc-b07d-c999bb2ede41" name="Changes" comment="Finished Predator Derivative">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GlobalVariables.py" beforeDir="false" afterPath="$PROJECT_DIR$/GlobalVariables.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plants.py" beforeDir="false" afterPath="$PROJECT_DIR$/Plants.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Predator.py" beforeDir="false" afterPath="$PROJECT_DIR$/Predator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prey.py" beforeDir="false" afterPath="$PROJECT_DIR$/Prey.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entities.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,8 +168,27 @@
       <option name="project" value="LOCAL" />
       <updated>1743618203995</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Finished Predator Derivative">
+      <option name="closed" value="true" />
+      <created>1743621673812</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1743621673812</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Starting this project, the first was me just messing around where as now actually starting on the IA project" />
@@ -176,6 +200,18 @@
     <MESSAGE value="no idea what I changed" />
     <MESSAGE value="Finished Plant Functions" />
     <MESSAGE value="Finished Prey Derivative" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished Prey Derivative" />
+    <MESSAGE value="Finished Predator Derivative" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished Predator Derivative" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

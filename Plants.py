@@ -1,9 +1,8 @@
-from entities import Entity
 from GlobalVariables import periodic_func_summer, periodic_func_winter
 #Makes herbivore class
-class Plants(Entity):
+class Plants:
     def __init__(self, density, growth_rate, equilibrium_density, max_rate_removal, cond_growth, cond_consumption):
-        Entity.__init__(self, density)
+        self.density = density
         self.growth_rate = growth_rate
         self.equilibrium_density = equilibrium_density
         self.max_rate_removal = max_rate_removal

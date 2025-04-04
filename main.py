@@ -1,77 +1,80 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import math
+from Prey import Prey
+from Plants import Plants
+from Predator import Predator
+import GlobalVariables
 
-def find_pos_lim(point, dx=math.pow(10, -4), func=lambda x: x*x):
-    return func(point+dx)
+browse = Plants(10000, 1.1, 2*math.pow(10, 5), 700, 1, .7)
+hare = Prey(100, 1.2, 1.8, .98, 2 * math.pow(10, 4))
+predators = Predator(.1, 1.2, 600, 90, .9)
 
-def find_neg_lim(point, dx=math.pow(10, -4), func=lambda x: x*x):
-    return func(point-dx)
+browse_array = []
+hare_array = []
+predator_array = []
 
+def update(time_interval, b):
+    b = round(b/time_interval)
 
-def approximate_derivative(point, dx=math.pow(10, -4), accepted_range=.001, func=lambda x: x**2):
-    lims = [find_pos_lim(point, dx, func), find_neg_lim(point, dx, func)]
-    if not -accepted_range < lims[0]-lims[1] < accepted_range:
-        print(f"lims not = at {point}")
-        return -1
-    else:
-        derivative = (lims[0] - lims[1])/(2*dx)
-        return derivative
+    GlobalVariables.time += time_interval
+    plant_der = browse.plant_derivative(hare) * time_interval
+    hare_der = hare.prey_derivative(browse, predators) * time_interval
+    pred_der = predators.find_predator_derivative(hare) * time_interval
+    browse.density += plant_der
+    hare.density += hare_der
+    predators.density += pred_der
 
-def simulate_planet_1d(initial_pos: float, time_interval: (float, float) = (0, 5), c: float = 1, dt=.01):
+    print(f" {hare_der} at {GlobalVariables.time}")
 
-    number_points = round((time_interval[1] - time_interval[0])/dt)
-    time_positions = np.linspace(time_interval[0], time_interval[1], number_points)
+    try:
 
-    # collection of 3d points, first index is position 2nd is velocity, 3rd is accel
-    positions = [initial_pos]
-    velocities = [0]
-    accelerations = [0]
+        browse_array.append(browse.density)
+        hare_array.append(hare.density)
+        predator_array.append(predators.density)
 
-    # declaring this for readability but also so we don't have forty billion .length calls
-    last_index = [initial_pos, 0, 0]
+        #browse_array.append(plant_der)
+        #hare_array.append(hare_der)
+        #predator_array.append(pred_der)
+        #hare_array[b] = hare.prey_derivative(browse, predators)
+        #predator_array[b] = predators.find_predator_derivative(hare)
 
-    def find_accel_gravity():
-        return c/math.pow(last_index[0], 2)
-
-    # make more efficient, i never used so feels weird to define for loop like this
-    for i in range(0, number_points-1):
-        #print(-math.copysign(1, last_index[0]))
-        last_index[2] = -math.copysign(1, last_index[0]) * find_accel_gravity()
-        last_index[1] += last_index[2]*dt
-        last_index[0] += last_index[1]*dt
-        positions.append(last_index[0])
-        velocities.append(last_index[1])
-        accelerations.append(last_index[2])
-        #print(last_index)
-
-    return time_positions, positions, velocities, accelerations
-
+    except:
+        pass
 
 if __name__ == '__main__':
-    x = np.linspace(0, 10, 1000)
+    # 10000 is arbitary start value
 
-    def func(i):
-        return math.sin(i**2)
+    #x = np.linspace(0, 10, 1000)
 
-    array_derivative = np.vectorize(lambda i: approximate_derivative(i, dx=.0000001, func=func))
-    base_func = np.vectorize(func)
+    num = 4000
+    end_point = 120
+    x = np.linspace(0, end_point, num)
 
-    y2 = array_derivative(x)
-    y1 = base_func(x)
+    for b in x:
+        update(end_point/num, b)
 
-    #fig, _ = plt.subplots()
-    _, ax2 = plt.subplots()
-    #_, ax3 = plt.subplots()
-    #_, ax4 = plt.subplots()
 
-    x3, y3, y4, y5 = simulate_planet_1d(10, (0, 15), c=90, dt=.0000001)
+    fig, axs = plt.subplots(1, 1)
+    axs.set_title("Browse vs Time, years")
+    axs.plot(x, browse_array)
+    _, ax = plt.subplots(1, 1)
+    ax.set_title("Hare vs Time, years")
+    ax.plot(x, hare_array)
+    _, ax2 = plt.subplots(1, 1)
+    ax2.set_title("Predator vs Time, years")
+    ax2.plot(x, predator_array)
+    """
+    fig, axs = plt.subplots(1, 3)
+    axs[0].set_title("Browse vs Time, years \n vs Hare vs Time")
+    axs[0].plot(x, browse_array)
 
-    #ax.plot(x, y1)
-    #ax.plot(x, y2)
-    ax2.plot(x3, y3)
-    #ax3.plot(x3, y4)
-    #ax4.plot(x3, y5)
+    axs[1].set_title("Hare vs Time, years")
+    axs[1].plot(x, hare_array)
+
+    axs[2].set_title("Predator vs Time, years")
+    axs[2].plot(x, predator_array)
+    """
 
     plt.show()
 
