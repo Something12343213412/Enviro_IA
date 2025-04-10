@@ -6,6 +6,7 @@ from Plants import Plants
 from Predator import Predator
 import GlobalVariables
 from Data_Management import save_entity, load_data
+from graphing_misc import graph_data, graph_datasets
 
 browse = Plants(10000, 1.1, 2*math.pow(10, 5), 700, 1, .7)
 hare = Prey(100, 1.2, 1.8, .98, 2 * math.pow(10, 4))
@@ -15,22 +16,12 @@ browse_array = []
 hare_array = []
 predator_array = []
 
-# makes one specific text input into an array
-def make_array(line: str):
-    # makes into an array
-    line = line.split(",")
-    # remove first bracket
-    line[0] = line[0].lstrip("[")
-    # loop through each removing unnecessary space at beginning
-    for d in range(0, len(line) - 1):
-        line[d] = line[d].lstrip(" ")
-    return line
-
-def load_file():
-    file = open("data.txt", "r")
-    # puts the 3 lines as strings into an array ** could cause issues of array not being enough to hold all memory
-    data = [file.readline(), file.readline(), file.readline()]
-    return make_array(data[0]), make_array(data[1]), make_array(data[2])
+# move into a misc func later
+def empty_array():
+    global browse_array, hare_array, predator_array
+    browse_array = []
+    hare_array = []
+    predator_array = []
 
 def update(time_interval, b):
     b = round(b/time_interval)
@@ -63,32 +54,28 @@ def update(time_interval, b):
 if __name__ == '__main__':
     num = 1200
     end_point = 60
-    x = np.linspace(0, end_point, num)
+    dt = end_point/num
+    #x = np.linspace(0, end_point, num)
+    #for b in x:
+        #update(dt, b)
+    # save seasonal data
+    #save_entity("data/browse_seasonal", browse_array)
+    #save_entity("data/hare_seasonal", hare_array)
+    #save_entity("data/predator_seasonal", predator_array)
 
-    for b in x:
-        update(end_point/num, b)
+    #save_entity("data/browse_non_seasonal", browse_array)
+    #save_entity("data/hare_non_seasonal", hare_array)
+    #save_entity("data/predator_non_seasonal", predator_array)
 
-    #print(file.read())
-    #file.write(f"{browse_array}\n{hare_array}\n{predator_array}")
+    browse_data = [load_data("data/browse_seasonal"), load_data("data/browse_non_seasonal")]
+    hare_data = [load_data("data/hare_seasonal"), load_data("data/hare_non_seasonal")]
+    predator_data = [load_data("data/predator_seasonal"), load_data("data/predator_non_seasonal")]
 
-    # loops through browse array saving each datapoint as a new line
+    graph_datasets(browse_data, dt, "Browse wave + Browse vs Time", ["r", "b"], ["seasonal", "not seasonal"])
+    graph_datasets(hare_data, dt, "Hare vs time", ["r", "b"], ["seasonal", "not seasonal"])
+    graph_datasets(predator_data, dt, "Predator vs time", ["r", "b"], ["seasonal", "not seasonal"])
 
-    save_entity("data/browse_data", browse_array)
-    save_entity("data/hare_data", hare_array)
-    save_entity("data/predator_data", predator_array)
 
-    print(load_data("data/browse_data"))
-    print(len(load_data("data/browse_data")))
-
-    fig, axs = plt.subplots(1, 1)
-    axs.set_title("Browse vs Time, years")
-    axs.plot(x, browse_array)
-    _, ax = plt.subplots(1, 1)
-    ax.set_title("Hare vs Time, years")
-    ax.plot(x, hare_array)
-    _, ax2 = plt.subplots(1, 1)
-    ax2.set_title("Predator vs Time, years")
-    ax2.plot(x, predator_array)
     """
     fig, axs = plt.subplots(1, 3)
     axs[0].set_title("Browse vs Time, years \n vs Hare vs Time")
@@ -101,5 +88,6 @@ if __name__ == '__main__':
     axs[2].plot(x, predator_array)
     """
 
+    plt.legend()
     plt.show()
 

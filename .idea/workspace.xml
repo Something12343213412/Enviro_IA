@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed3e1980-08e8-49fc-b07d-c999bb2ede41" name="Changes" comment="">
+    <list default="true" id="ed3e1980-08e8-49fc-b07d-c999bb2ede41" name="Changes" comment="Changed the data storage and added new data management file">
+      <change afterPath="$PROJECT_DIR$/graphing_misc.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GlobalVariables.py" beforeDir="false" afterPath="$PROJECT_DIR$/GlobalVariables.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Data_Management.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -186,7 +186,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743801187202</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Changed the data storage and added new data management file">
+      <option name="closed" value="true" />
+      <created>1744249252004</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1744249252004</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -212,7 +220,8 @@
     <MESSAGE value="Finished Prey Derivative" />
     <MESSAGE value="Finished Predator Derivative" />
     <MESSAGE value="Did a lot, forgot to commit like a dumb dumb" />
-    <option name="LAST_COMMIT_MESSAGE" value="Did a lot, forgot to commit like a dumb dumb" />
+    <MESSAGE value="Changed the data storage and added new data management file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed the data storage and added new data management file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
