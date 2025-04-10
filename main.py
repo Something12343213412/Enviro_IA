@@ -5,6 +5,7 @@ from Prey import Prey
 from Plants import Plants
 from Predator import Predator
 import GlobalVariables
+from Data_Management import save_entity, load_data
 
 browse = Plants(10000, 1.1, 2*math.pow(10, 5), 700, 1, .7)
 hare = Prey(100, 1.2, 1.8, .98, 2 * math.pow(10, 4))
@@ -14,9 +15,25 @@ browse_array = []
 hare_array = []
 predator_array = []
 
+# makes one specific text input into an array
+def make_array(line: str):
+    # makes into an array
+    line = line.split(",")
+    # remove first bracket
+    line[0] = line[0].lstrip("[")
+    # loop through each removing unnecessary space at beginning
+    for d in range(0, len(line) - 1):
+        line[d] = line[d].lstrip(" ")
+    return line
+
+def load_file():
+    file = open("data.txt", "r")
+    # puts the 3 lines as strings into an array ** could cause issues of array not being enough to hold all memory
+    data = [file.readline(), file.readline(), file.readline()]
+    return make_array(data[0]), make_array(data[1]), make_array(data[2])
+
 def update(time_interval, b):
     b = round(b/time_interval)
-
     GlobalVariables.time += time_interval
     plant_der = browse.plant_derivative(hare) * time_interval
     hare_der = hare.prey_derivative(browse, predators) * time_interval
@@ -42,18 +59,26 @@ def update(time_interval, b):
     except:
         pass
 
+
 if __name__ == '__main__':
-    # 10000 is arbitary start value
-
-    #x = np.linspace(0, 10, 1000)
-
-    num = 4000
-    end_point = 120
+    num = 1200
+    end_point = 60
     x = np.linspace(0, end_point, num)
 
     for b in x:
         update(end_point/num, b)
 
+    #print(file.read())
+    #file.write(f"{browse_array}\n{hare_array}\n{predator_array}")
+
+    # loops through browse array saving each datapoint as a new line
+
+    save_entity("data/browse_data", browse_array)
+    save_entity("data/hare_data", hare_array)
+    save_entity("data/predator_data", predator_array)
+
+    print(load_data("data/browse_data"))
+    print(len(load_data("data/browse_data")))
 
     fig, axs = plt.subplots(1, 1)
     axs.set_title("Browse vs Time, years")
