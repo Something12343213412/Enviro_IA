@@ -1,80 +1,58 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import math
-from Prey import Prey
-from Plants import Plants
-from Predator import Predator
-import GlobalVariables
-from Data_Management import save_entity, load_data
+from data.non_disruption.Data_Management import save_entity, load_data
 from graphing_misc import graph_data, graph_datasets
+from Point_Calculations import update, get_pred, get_hare, get_browse, cause_disruption_hare, empty_array
 
-browse = Plants(10000, 1.1, 2*math.pow(10, 5), 700, 1, .7)
-hare = Prey(100, 1.2, 1.8, .98, 2 * math.pow(10, 4))
-predators = Predator(.1, 1.2, 600, 90, .9)
+def calculate_difference(arr1, arr2):
+    diff = []
+    for c in range(0, len(arr1)-1):
+        diff.append(arr1[c]/arr2[c])
+        if (diff[c] < .95 or diff[c] > 1.05) and c*dt > .65:
+            print(f"% is {diff[c]} at {c*dt - .65}")
 
-browse_array = []
-hare_array = []
-predator_array = []
-
-# move into a misc func later
-def empty_array():
-    global browse_array, hare_array, predator_array
-    browse_array = []
-    hare_array = []
-    predator_array = []
-
-def update(time_interval, b):
-    b = round(b/time_interval)
-    GlobalVariables.time += time_interval
-    plant_der = browse.plant_derivative(hare) * time_interval
-    hare_der = hare.prey_derivative(browse, predators) * time_interval
-    pred_der = predators.find_predator_derivative(hare) * time_interval
-    browse.density += plant_der
-    hare.density += hare_der
-    predators.density += pred_der
-
-    print(f" {hare_der} at {GlobalVariables.time}")
-
-    try:
-
-        browse_array.append(browse.density)
-        hare_array.append(hare.density)
-        predator_array.append(predators.density)
-
-        #browse_array.append(plant_der)
-        #hare_array.append(hare_der)
-        #predator_array.append(pred_der)
-        #hare_array[b] = hare.prey_derivative(browse, predators)
-        #predator_array[b] = predators.find_predator_derivative(hare)
-
-    except:
-        pass
+    return diff
 
 
 if __name__ == '__main__':
     num = 1200
-    end_point = 60
+    end_point = 10
     dt = end_point/num
-    #x = np.linspace(0, end_point, num)
+    x = np.linspace(0, end_point, num)
+
+    cause_disruption_hare(0.4, .05, 0, .1, 5, .12, dt, num)
     #for b in x:
-        #update(dt, b)
-    # save seasonal data
-    #save_entity("data/browse_seasonal", browse_array)
-    #save_entity("data/hare_seasonal", hare_array)
-    #save_entity("data/predator_seasonal", predator_array)
+        #update(dt)
 
-    #save_entity("data/browse_non_seasonal", browse_array)
-    #save_entity("data/hare_non_seasonal", hare_array)
-    #save_entity("data/predator_non_seasonal", predator_array)
+    save_entity("data/disruption/browse_s", get_browse())
+    save_entity("data/disruption/hare_s", get_hare())
+    save_entity("data/disruption/pred_s", get_pred())
 
-    browse_data = [load_data("data/browse_seasonal"), load_data("data/browse_non_seasonal")]
-    hare_data = [load_data("data/hare_seasonal"), load_data("data/hare_non_seasonal")]
-    predator_data = [load_data("data/predator_seasonal"), load_data("data/predator_non_seasonal")]
+    #empty_array()
+    #for b in x:
+        #update(dt)
 
-    graph_datasets(browse_data, dt, "Browse wave + Browse vs Time", ["r", "b"], ["seasonal", "not seasonal"])
-    graph_datasets(hare_data, dt, "Hare vs time", ["r", "b"], ["seasonal", "not seasonal"])
-    graph_datasets(predator_data, dt, "Predator vs time", ["r", "b"], ["seasonal", "not seasonal"])
+    #save_entity("data/non_disruption/browse_s", get_browse())
+    #save_entity("data/non_disruption/hare_s", get_hare())
+    #save_entity("data/non_disruption/pred_s", get_pred())
 
+    browse_data = [load_data("data/disruption/browse_s"), load_data(
+        "data/non_disruption/browse_s")]
+    hare_data = [load_data("data/disruption/hare_s"), load_data("data/non_disruption/hare_s")]
+    predator_data = [load_data("data/disruption/pred_s"), load_data(
+        "data/non_disruption/pred_s")]
+
+    #graph_data(load_data("data/disruption/browse_s"), dt, "browse vs time")
+    #graph_data(load_data("data/disruption/hare_s"), dt, "hare vs time")
+    #graph_data(load_data("data/disruption/pred_s"), dt, "predator vs time")
+
+    graph_datasets(browse_data, dt, "Browse d + Browse non d vs Time", ["r", "b"], ["d", "non_d"])
+    graph_datasets(hare_data, dt, "Hare vs time", ["r", "b"], ["d", "non_d"])
+    graph_datasets(predator_data, dt, "Predator vs time", ["r", "b"], ["d", "non_d"])
+
+    graph_data(calculate_difference(predator_data[0], predator_data[1]), dt, "% diff pred")
+    graph_data(calculate_difference(hare_data[0], hare_data[1]), dt, "% diff hare")
+    graph_data(calculate_difference(browse_data[0], browse_data[1]), dt, "% diff browse baseline")
 
     """
     fig, axs = plt.subplots(1, 3)
